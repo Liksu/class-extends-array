@@ -1,5 +1,10 @@
 'use strict';
-export default function extendWithArray(ParentClass) {
+export default function extendWithArray(ParentClass, options = {}) {
+	options = Object.assign({
+		onlyMethods: false,
+		allowConstructor: true
+	}, options);
+
     const ChildArrayClass = function() {
         const tmp = [];
         tmp.push.apply(tmp, arguments);
@@ -12,7 +17,15 @@ export default function extendWithArray(ParentClass) {
     const protoObject = new ParentClass();
     Object.getOwnPropertyNames(Object.getPrototypeOf(protoObject)).forEach(name => {
         const method = protoObject[name];
-        if (method instanceof Function && method !== ParentClass) ChildArrayClass.prototype[name] = method;
+        
+        const isMethod = method instanceof Function;
+        const isConstructor = method === ParentClass;
+
+        let canCopy =  isMethod &&  isConstructor && options.allowConstructor
+                   ||  isMethod && !isConstructor
+                   || !isMethod && !options.onlyMethods;
+        
+        if (canCopy) ChildArrayClass.prototype[name] = method;
     });
 
     return ChildArrayClass;

@@ -1,0 +1,25 @@
+{
+  "name": "class-extends-array",
+  "version": "2.1.0",
+  "description": "Make new class that extends array",
+  "main": "extender.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liksu/class-extends-array.git"
+  },
+  "keywords": [
+    "es6",
+    "class",
+    "extends",
+    "array"
+  ],
+  "author": "Liksu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liksu/class-extends-array/issues"
+  },
+  "homepage": "https://github.com/Liksu/class-extends-array#readme"
+}

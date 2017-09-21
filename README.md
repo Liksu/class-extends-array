@@ -1,5 +1,6 @@
 I made small function that makes intermediate prototype with methods from parent class between Array class and parent class.
 Due to babel issue: Errors with extending Array [#1424](https://github.com/babel/babel/issues/1424)
+This function uses ```__proto__```, so, can fail on IE10 and less.
 
 ### Installation
 
